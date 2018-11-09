@@ -4,4 +4,6 @@ from . import main
 @main.route('/')
 def index():
   
-  return render_template('index.html')
+  recent_news = get_news('top-headlines')
+
+  return render_template('index.html', recents = recent_news)
