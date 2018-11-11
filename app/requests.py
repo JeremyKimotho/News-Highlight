@@ -37,10 +37,13 @@ def get_specific(source):
     news_results = None
 
     if get_specific_response['articles']:
-      news_results_list = get_specific_response['articles']
-      news_results = process_results(news_results_list)
+      source_results_list = get_specific_response['articles']
+      source_results = process_source_results(source_results_list)
 
-  return news_results
+  return source_results
+
+def process_source_results(source_list):
+
 
 def process_results(news_list):
   news_results=[]

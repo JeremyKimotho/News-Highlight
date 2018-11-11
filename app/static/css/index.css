@@ -1,6 +1,10 @@
 a {
   cursor: pointer;
 }
+a:hover{
+  text-decoration: none;
+  color:#C0392B;
+}
 body{
   background-color:#ECF0F1;
 }

@@ -14,5 +14,5 @@ def date_calc(date):
   elif daysPast>1 and daysPast<=2:
     return 'yesterday.'
   else :
-    return str(daysPast) + 'ago.'
+    return str(int(daysPast)) + ' days ago.'
 

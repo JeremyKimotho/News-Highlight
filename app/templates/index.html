@@ -10,12 +10,10 @@
       {{super()}}
       <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
     {% endblock %}
-    <div class="row">
-      <div class="card">
-        {% block content %}
-        {{macro.displayNewsList(recents)}}
-        {% endblock %}
-      </div>
-    </div>
+    <a name="top"></a>
+      {% block content %}
+      {{macro.displayNewsList(recents)}}
+      {% endblock %}
+    <a href="#top"><button>Back to top</button></a>
   </body>
 </html>
