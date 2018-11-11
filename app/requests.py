@@ -34,7 +34,7 @@ def get_specific(source):
     get_specific_data = url.read()
     get_specific_response = json.loads(get_specific_data)
 
-    news_results = None
+    source_results = None
 
     if get_specific_response['articles']:
       source_results_list = get_specific_response['articles']
@@ -43,7 +43,27 @@ def get_specific(source):
   return source_results
 
 def process_source_results(source_list):
+  source_results=[]
+  for source_item in source_list:
+    name = source_item.get('source.name')
+    info = source_item.get('description')
+    headline = source_item.get('title')
+    link_to_site = source_item.get('url')
+    date_written = source_item.get('publishedAt')
+    image = source_item.get('urlToImage')
 
+    daysSince = date_calc(date_written)
+
+    if info:
+      info = info
+    else:
+      info = headline
+
+    if image:
+      source_object = Source(name, info, headline, link_to_site, image, date_written, daysSince)
+      source_results.append(source_object)
+
+  return source_results
 
 def process_results(news_list):
   news_results=[]
