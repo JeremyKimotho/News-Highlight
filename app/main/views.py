@@ -13,6 +13,7 @@ def index():
 def search(source_name):
 
   specific_source = get_specific(source_name)
+
   title = f'These are only the stories from {source_name}'
 
-  return render_template('specific.html', favourite = specific_source)
+  return render_template('specific.html', body = title, favourite = specific_source)
