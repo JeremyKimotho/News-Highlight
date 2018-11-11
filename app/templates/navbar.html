@@ -12,12 +12,12 @@
       </div>
       <div class='navbar-collapse collapse'>
         <ul class='nav navbar-nav'>
-          <li><button action='/source/bbc'>BBC News</button></li>
-          <li><a href='/'>USA Today</a></li>
-          <li><a href='/'>CNN</a></li>
-          <li><a href='/'>New York Times</a></li>
-          <li><a href='/'>The Washington Post</a></li>
-          <li><a href='/'>ESPN</a></li>
+          <li><a href="{{url_for('main.search', source_name='bbc-news')}}">BBC News</a></li>
+          <li><a href="{{url_for('main.search', source_name='usa-today')}}">USA Today</a></li>
+          <li><a href="{{url_for('main.search', source_name='cnn')}}">CNN</a></li>
+          <li><a href="{{url_for('main.search', source_name='the-new-york-times')}}">The New York Times</a></li>
+          <li><a href="{{url_for('main.search', source_name='the-washington-times')}}">The Washington Times</a></li>
+          <li><a href="{{url_for('main.search', source_name='espn')}}">ESPN</a></li>
         </ul>
       </div>
     </div>

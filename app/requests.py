@@ -1,14 +1,17 @@
 import urllib.request, json
-from .models import Article
+from .models import Article, Source
 from .date_pipe import date_calc
 article=Article
+source=Source
 
 api_key=None
 
 base_url=None
 
+source_base_url=None
+
 def configure_request(app):
-  global api_key, base_url
+  global api_key, base_url, source_base_url
   api_key = app.config['NEWS_API_KEY']
   base_url = app.config['NEWS_API_BASE_URL']
   source_base_url = app.config['SOURCE_BASE_URL']

@@ -9,10 +9,8 @@ def index():
 
   return render_template('index.html', recents = recent_news)
 
-@main.route('/source/bbc')
-def search_bbc(source_name):
-
-  source_name = 'bbc-news'
+@main.route('/source/<source_name>')
+def search(source_name):
 
   specific_source = get_specific(source_name)
   title = f'These are only the stories from {source_name}'
