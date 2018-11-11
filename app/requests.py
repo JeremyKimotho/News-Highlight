@@ -1,5 +1,6 @@
 import urllib.request, json
 from .models import Article
+from .date_pipe import date_calc
 article=Article
 
 api_key=None
@@ -44,14 +45,21 @@ def get_specific(source):
 def process_results(news_list):
   news_results=[]
   for news_item in news_list:
-    author = news_item.get('author')
+    info = news_item.get('description')
     headline = news_item.get('title')
     link_to_site = news_item.get('url')
     date_written = news_item.get('publishedAt')
     image = news_item.get('urlToImage')
 
+    daysSince = date_calc(date_written)
+
+    if info:
+      info = info
+    else:
+      info = headline
+
     if image:
-      news_object = Article(author, headline, link_to_site, image, date_written)
+      news_object = Article(info, headline, link_to_site, image, date_written, daysSince)
       news_results.append(news_object)
 
   return news_results
