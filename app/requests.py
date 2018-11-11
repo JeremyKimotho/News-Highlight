@@ -10,6 +10,7 @@ def configure_request(app):
   global api_key, base_url
   api_key = app.config['NEWS_API_KEY']
   base_url = app.config['NEWS_API_BASE_URL']
+  source_base_url = app.config['SOURCE_BASE_URL']
 
 def get_news(category):
   get_news_url = base_url.format(category, api_key)
@@ -26,7 +27,19 @@ def get_news(category):
   return news_results
 
 def get_specific(source):
-  
+  get_specific_url = source_base_url.format(source, api_key)
+  print(get_specific_url)
+  with urllib.request.urlopen(get_specific_url) as url:
+    get_specific_data = url.read()
+    get_specific_response = json.loads(get_specific_data)
+
+    news_results = None
+
+    if get_specific_response['articles']:
+      news_results_list = get_specific_response['articles']
+      news_results = process_results(news_results_list)
+
+  return news_results
 
 def process_results(news_list):
   news_results=[]
