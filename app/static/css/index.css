@@ -24,3 +24,7 @@ hr{
   height:2px;
   background-color:#E3E3E3;
 }
+.container{
+  background-color: white;
+  border-radius:40px;
+}
