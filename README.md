@@ -23,7 +23,7 @@ There are no know bugs but if something arises please let me know.
 ## Support and contact details
 You can reach me on jeremykimotho@yahoo.com
 ## Live Link
-https://www.news-jeremy-kim.herokuapp.com
+https://news-jeremy-kim.herokuapp.com/ 
 ## License
 
 MIT License
